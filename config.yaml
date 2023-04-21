@@ -1,0 +1,8 @@
+model: Resnet18
+mode: train
+batch_size: 4
+lr: 1e-3
+epochs: 10
+momentum: 0.9
+weight_decay: 5e-4
+ckpt: ckpt/ 
