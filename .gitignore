@@ -1,2 +1,4 @@
 new_test/
 new_train/
+*.csv
+test.py
