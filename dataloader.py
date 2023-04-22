@@ -1,9 +1,10 @@
 import pandas as pd
 from torch.utils import data
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFile
 import os
 from torchvision import transforms
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 def preprocess(image):
     size = np.asarray(image.size)
@@ -83,6 +84,7 @@ class RetinopathyLoader(data.Dataset):
 
         path = os.path.join(self.root, self.img_name[index] + '.jpeg')
         img = preprocess(Image.open(path).convert('RGB'))
+        img = self.transform(img)
         label = self.label[index]
 
 

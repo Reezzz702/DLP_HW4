@@ -3,3 +3,4 @@ new_train/
 *.csv
 test.py
 ckpt/
+outputs/
