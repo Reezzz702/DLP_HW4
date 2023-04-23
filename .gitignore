@@ -4,3 +4,7 @@ new_train/
 test.py
 ckpt/
 outputs/
+__pycache__/
+train/
+test/
+log/

@@ -1,11 +1,13 @@
-model: Resnet18
+model: Resnet50
+pre_train: True
 mode: train
-batch_size: 4
+batch_size: 8
 lr: 1e-3
-epochs: 10
+epochs: 5
 momentum: 0.9
 weight_decay: 5e-4
-ckpt: ckpt/
+ckpt: ckpt
+log: log
 
 hydra:
   output_subdir: null

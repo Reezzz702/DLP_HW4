@@ -83,8 +83,8 @@ class RetinopathyLoader(data.Dataset):
         """
 
         path = os.path.join(self.root, self.img_name[index] + '.jpeg')
-        img = preprocess(Image.open(path).convert('RGB'))
-        img = self.transform(img)
+        # img = preprocess(Image.open(path).convert('RGB'))
+        img = self.transform(Image.open(path).convert('RGB'))
         label = self.label[index]
 
 
