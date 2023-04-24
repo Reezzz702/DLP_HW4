@@ -1,9 +1,9 @@
 model: Resnet50
 pre_train: True
-mode: train
+mode: test
 batch_size: 8
 lr: 1e-3
-epochs: 5
+epochs: 10
 momentum: 0.9
 weight_decay: 5e-4
 ckpt: ckpt

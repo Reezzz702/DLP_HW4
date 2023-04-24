@@ -7,12 +7,18 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 def preprocess(image):
-    size = np.asarray(image.size)
+    # Calculate the shorter side of the original rectangle
+    width, height = image.size
+    short_side = min(width, height)
 
-    short = min(size)
-    l = short//2
-    center = size//2
-    image = image.crop((int(center[0]) - l, int(center[1]) - l, int(center[0]) + l, int(center[1]) + l))
+    # Crop the image to a square shape
+    left = (width - short_side) // 2
+    top = (height - short_side) // 2
+    right = (width + short_side) // 2
+    bottom = (height + short_side) // 2
+    image = image.crop((left, top, right, bottom))
+
+    # Resize the square image to the desired size
     image = image.resize((512, 512))
     return image
 

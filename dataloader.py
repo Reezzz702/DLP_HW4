@@ -6,15 +6,6 @@ import os
 from torchvision import transforms
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-def preprocess(image):
-    size = np.asarray(image.size)
-
-    short = min(size)
-    l = short//2
-    center = size//2
-    image = image.crop((int(center[0]) - l, int(center[1]) - l, int(center[0]) + l, int(center[1]) + l))
-    image = image.resize((512, 512))
-    return image
 
 def get_transforms(mode):
     if mode == "train":
@@ -81,11 +72,9 @@ class RetinopathyLoader(data.Dataset):
                          
             step4. Return processed image and label
         """
-
         path = os.path.join(self.root, self.img_name[index] + '.jpeg')
         # img = preprocess(Image.open(path).convert('RGB'))
         img = self.transform(Image.open(path).convert('RGB'))
         label = self.label[index]
-
 
         return img, label
